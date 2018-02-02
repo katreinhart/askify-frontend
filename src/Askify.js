@@ -18,7 +18,6 @@ import {
 
 import { fetchQueue } from './actions/queue.actions'
 
-
 class Askify extends Component {
   constructor(props){
     super(props)
