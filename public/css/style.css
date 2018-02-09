@@ -117,12 +117,18 @@ video {
   width: 100vw;
   background-color: #323332 !important;
   display: flex;
+  box-shadow: 0 0 0 0 !important;
 }
 
 .navbar-brand {
   color: #f6872a;
   font-weight: bold;
   font-size: 3rem;
+  text-decoration: none;
+}
+
+.navbar-brand:hover {
+  color: #f6872a;
 }
 
 .powered-by {
@@ -132,6 +138,7 @@ video {
 .nav-item {
   text-decoration: underline;
   font-size: .8rem;
+  cursor: pointer;
 }
 
 .spot {
@@ -160,8 +167,8 @@ video {
 
 .jumbotron-fluid {
   background-color: #003a4b;
-  padding-top: 5rem;
-  padding-bottom: 5rem;
+  padding-top: 2rem;
+  padding-bottom: 2.5rem;
 }
 
 .question {
@@ -173,11 +180,6 @@ video {
   z-index: 0;
 }
 
-.gschool-img {
-  height: 1rem;
-  width: auto;
-}
-
 .list-head {
   background-color: #f6872a;
   color: #fff;
@@ -187,7 +189,7 @@ video {
 }
 
 .question-list {
-  margin-top: 420px;
+  margin-top: 340px;
 }
 
 .question-item {
@@ -213,6 +215,16 @@ video {
   margin-right: 0;
 }
 
+.answer-row {
+  width: 100%;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.answer {
+  font-style: italic;
+}
+
 .ReactCollapse--collapse {
   width: 100% !important;
   padding: 0 !important;
@@ -225,6 +237,12 @@ video {
   padding: 0 !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
+}
+
+/* ARCHIVE PAGE ARCHIVE PAGE ARCHIVE PAGE */
+
+.archive-list {
+  margin-top: 0px;
 }
 
 @media screen and (max-width: 1200px) {

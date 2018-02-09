@@ -1,11 +1,15 @@
+import {
+  FETCH_ARCHIVE_SUCCESS
+} from '../actions'
 
-
-
-export function fetchArchive(token) {
+export function fetchArchive() {
   return async (dispatch) => {
-    const res = await fetch(`https://askify-api.herokuapp.com/api/archive`, {
+    const token = localStorage.getItem('askifyToken')
+    const res = await fetch(`${process.env.REACT_APP_DASHDASH_API_URL}/api/archive`, {
       headers: {
         'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
       }
     })
     const json = await res.json()

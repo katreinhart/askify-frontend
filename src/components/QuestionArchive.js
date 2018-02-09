@@ -1,22 +1,51 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 import { Footer, ArchiveList, QueueListHeader } from './commonComponents'
 import Navigation from './commonComponents/Navigation'
 
-class QuestionArchive extends Component{
+import {
+  fetchUser,
+  logUserOut,
+  updateQueuePosition
+} from '../actions/user.actions'
 
-    render(){
-        return (
-            <div>
-              <Navigation
-                  navItem={'Queue'}
-                  fname={this.props.user.fname}
-                  queueOrder={this.props.user.queueOrder}
-              />
-              <QueueListHeader />
-              <ArchiveList questionArchive={this.props.questionArchive} />
-            </div>
-        )
-    }
+import { fetchQueue } from '../actions/queue.actions'
+
+import { fetchArchive } from '../actions/archive.actions'
+
+const QuestionArchive = (props) => {
+  return (
+      <div>
+        <Navigation
+            navItem={'Queue'}
+            navRoute={'/queue'}
+            fname={props.user.fname}
+            queueOrder={props.user.order}
+            logout={props.logout}
+        />
+        <QueueListHeader />
+        <ArchiveList archive={props.archive} />
+      </div>
+    )
 }
 
-export default QuestionArchive
+function mapStateToProps (state) {
+  return {
+    queue: state.queue,
+    archive: state.archive,
+    user: state.user,
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return bindActionCreators({
+    fetchUser,
+    logUserOut,
+    fetchQueue,
+    updateQueuePosition,
+    fetchArchive
+  }, dispatch)
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(QuestionArchive)
