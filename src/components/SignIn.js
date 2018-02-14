@@ -16,7 +16,6 @@ export const SignIn = ({ setUserDataToState, history, ...props }) => {
 
     props.signIn(payload)
   }
-
   return (
       <div>
 
