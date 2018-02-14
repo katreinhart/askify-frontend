@@ -9,8 +9,8 @@ import { updateQueuePosition } from './user.actions'
 
 export function fetchQueue() {
   return async (dispatch) => {
-    const token = localStorage.getItem('askifyToken')
-    const res = await fetch(`${process.env.REACT_APP_DASHDASH_API_URL}/api/queue`, {
+    const token = window.localStorage ? window.localStorage.getItem('askifyToken') : ''
+    const res = await fetch(`https://askify-api.herokuapp.com/api/queue`, {
       headers: {
         'Authorization': `Bearer ${token}`,
       }
@@ -26,8 +26,8 @@ export function fetchQueue() {
 
 export function postQuestion(payload) {
   return async (dispatch) => {
-    const token = localStorage.getItem('askifyToken')
-    const res = await fetch(`${process.env.REACT_APP_DASHDASH_API_URL}/api/questions/`, {
+    const token = localStorage ? localStorage.getItem('askifyToken') : ''
+    const res = await fetch(`https://askify-api.herokuapp.com/api/queue`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -52,8 +52,8 @@ export function postQuestion(payload) {
 
 export function postAnswer(qid, fname, cohort, answer) {
   return async (dispatch) => {
-    const token = localStorage.getItem('askifyToken')
-    const res = await fetch(`${process.env.REACT_APP_DASHDASH_API_URL}/api/questions/${qid}/answers`, {
+    const token = localStorage.getItem('askifyToken') || ''
+    const res = await fetch(`https://askify-api.herokuapp.com/api/questions/${qid}/answers`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -76,7 +76,7 @@ export function postAnswer(qid, fname, cohort, answer) {
 export function updateQuestion(id, question) {
   return async (dispatch) => {
     const token = localStorage.getItem('askifyToken')
-    const res = await fetch(`${process.env.REACT_APP_DASHDASH_API_URL}/api/questions/${id}`, {
+    const res = await fetch(`https://askify-api.herokuapp.com/api/questions/${id}`, {
       method: 'PUT',
       headers: {
         'Authorization': `Bearer ${token}`,
@@ -98,7 +98,7 @@ async function getUserId() {
   const header = {
     'Authorization': `Bearer ${token}`,
   }
-  const res = await fetch(`${process.env.REACT_APP_DASHDASH_API_URL}/api/user`, {
+  const res = await fetch(`https://askify-api.herokuapp.com/api/user`, {
     headers: header
   })
   const user = await res.json()

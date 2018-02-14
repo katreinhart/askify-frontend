@@ -25,3 +25,7 @@
 
 - [ ] Enable multiple answers for individual questions
 - [ ] Inject archived questions from previous classrooms based on the curriculum being taught
+
+
+## Update 2/18 Kat Reinhart
+- Adding tests with goal of 100% coverage. 
