@@ -58,8 +58,6 @@ export function signUp(payload) {
     const user = await newUser.json()
     window.localStorage.setItem('askifyToken', user.token)
 
-    window.localStorage.setItem('askifyToken', user.token)
-
     dispatch({
       type: SIGN_UP_SUCCESS,
       payload: user

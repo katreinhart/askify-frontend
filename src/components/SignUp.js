@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 
 import { signUp } from '../actions/user.actions'
+import BackgroundVideo from './commonComponents/BackgroundVideo'
 
 const SignUp = ({ ...props }) => {
 
@@ -24,16 +25,7 @@ const SignUp = ({ ...props }) => {
 
   return (
       <div>
-
-        <div className="signin-homepage-video-section">
-          <div className="video-background hidden-sm hidden-xs">
-            <video preload="true" autoplay="true" loop="true" className="video" poster="https://s3-us-west-2.amazonaws.com/dotcom-files/video_hero_bg_poster.png">
-              <source src="https://s3-us-west-2.amazonaws.com/dotcom-files/hero_video.mp4" type="video/mp4" />
-            </video>
-            <div className="signin-overlay"></div>
-          </div>
-
-        </div>
+        <BackgroundVideo />
         <div className="signin-container align-items-center justify-content-between">
           <div className='d-flex flex-column justify-content-center'>
             <div className='d-flex align-items-end'>

@@ -55,9 +55,9 @@ export class Askify extends Component {
       <div>
         <Router>
           <div className="App">
-            <Route exact path='/' component={() => this.props.user ?
+            <Route exact path='/' component={() => this.props.user.id !== 0 ?
               <Redirect to="/queue"/> : <SignIn />} />
-            <Route path='/signup' component={() => this.props.user ?
+            <Route path='/signup' component={() => this.props.user.id !== 0 ?
               <Redirect to="/queue"/> : <SignUp />} />
             <Route path='/queue' component={ isPrivate(this.props.user, Queue) } />
             <Route path='/archive' component={ isPrivate(this.props.user, QuestionArchive) } />

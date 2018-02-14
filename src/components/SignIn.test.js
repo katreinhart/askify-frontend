@@ -4,9 +4,11 @@ import { SignIn } from './SignIn'
 import { StaticRouter } from 'react-router-dom'
 
 describe('SignIn', () => {
+  const mockSignIn = jest.fn()
+
   let signin = mount(
     <StaticRouter>
-      <SignIn />
+      <SignIn signIn={mockSignIn}/>
     </StaticRouter>
   )
   it('renders without crashing', () => {
@@ -29,7 +31,7 @@ describe('SignIn', () => {
     it('submits the signin form on click', () => {
       signin.find('.signin-btn').simulate('click')
 
-      expect()
+      expect(mockSignIn).toHaveBeenCalled()
     })
   })
 

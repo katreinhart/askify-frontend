@@ -14,10 +14,10 @@ describe('Askify', () => {
     expect(askify).toMatchSnapshot()
   })
 
-  // describe('when there is no user logged in', () => {
-  //   let askify = mount(<Askify />)
-  //   it('renders sign in page', () => {
-  //     expect(askify.find('Connect(SignIn)').exists()).toBe(true)
-  //   })
-  // })
+  describe('when there is no user logged in', () => {
+    let askify = mount(<Askify />)
+    it('renders sign in page', () => {
+      expect(askify.find('Connect(SignIn)').exists()).toBe(true)
+    })
+  })
 })
