@@ -10,7 +10,6 @@ import {
 export function fetchUser() {
   return async (dispatch) => {
     const token = localStorage.getItem('askifyToken')
-    console.log(token);
     const header = {
       'Authorization': `Bearer ${token}`,
       'Accept': 'application/json',

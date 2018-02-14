@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 
 import { signIn } from '../actions/user.actions'
 
-const SignIn = ({ setUserDataToState, history, ...props }) => {
+export const SignIn = ({ setUserDataToState, history, ...props }) => {
 
   const signInPrep = (e) => {
     e.preventDefault()

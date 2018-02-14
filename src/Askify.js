@@ -20,12 +20,11 @@ import { fetchQueue } from './actions/queue.actions'
 import { fetchArchive } from './actions/archive.actions'
 
 
-const isPrivate = ({ id }, Component) => {
-  console.log(id);
-  return (props) => id ? <Component {...props} /> : <Redirect to="/"/>
+const isPrivate = (user, Component) => {
+  return (props) => user ? <Component {...props} /> : <Redirect to="/"/>
 }
 
-class Askify extends Component {
+export class Askify extends Component {
   constructor(props){
     super(props)
   }
@@ -56,9 +55,9 @@ class Askify extends Component {
       <div>
         <Router>
           <div className="App">
-            <Route exact path='/' component={() => this.props.user.id ?
+            <Route exact path='/' component={() => this.props.user ?
               <Redirect to="/queue"/> : <SignIn />} />
-            <Route path='/signup' component={() => this.props.user.id ?
+            <Route path='/signup' component={() => this.props.user ?
               <Redirect to="/queue"/> : <SignUp />} />
             <Route path='/queue' component={ isPrivate(this.props.user, Queue) } />
             <Route path='/archive' component={ isPrivate(this.props.user, QuestionArchive) } />

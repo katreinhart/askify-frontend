@@ -5,7 +5,6 @@ import fetchMock from 'fetch-mock'
 import * as constants from './index'
 import * as actions from './queue.actions'
 
-
 describe('queue actions', () => {
 
   const createMockStore = configureMockStore([thunk])
